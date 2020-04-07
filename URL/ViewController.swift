@@ -9,12 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var urlstr = ""
+    @IBOutlet weak var UrlTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
     }
 
-
+    @IBAction func confirm(_ sender: Any) {
+        urlstr = UrlTextField.text!
+    }
+    
+    @IBSegueAction func connect(_ coder: NSCoder) -> secondViewController? {
+        let controller = secondViewController(coder: coder)
+        controller?.url1 = urlstr
+        return controller
+    }
 }
+
+
 
